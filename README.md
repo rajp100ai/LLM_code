@@ -1,5 +1,5 @@
 # LLM_code
-Sample GenAI code to learn langchain.  
+Sample GenAI code to learn langchain. https://python.langchain.com/docs/get_started/introduction
 Note: Please use your own API Keys. Keys are used in the code are already removed.
 
 #### Sample code 1 (HuggingFace):
