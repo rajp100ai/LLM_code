@@ -10,11 +10,17 @@ Note: Please use your own API Keys. Keys are used in the code are already remove
 import os
 os.environ["HUGGINGFACEHUB_API_TOKEN"]="<API_KEY>"
 
-from langchain.llms import HuggingFaceHub
-llm = HuggingFaceHub(repo_id = "google/flan-t5-large")
+def get_answer(query):
+    llm = HuggingFaceHub(repo_id = "google/flan-t5-large")
+    return llm(query)
 
-query = "What is the capital of UK?"
-answer = llm(query)
+def get_query():
+    return "What is the capital of UK?"
+
+from langchain.llms import HuggingFaceHub
+query = get_query()
+answer = get_answer(query)
+
 print(answer)
 ```
 
