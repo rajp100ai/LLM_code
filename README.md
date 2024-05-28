@@ -4,7 +4,7 @@ Note: Please use your own API Keys. Keys are used in the code are already remove
 
 #### Sample code 1 (HuggingFace):
 ```
-!pip install langchain
+!pip install langchain langchain-community langchain-core
 !pip install huggingface_hub
 
 import os
@@ -26,7 +26,7 @@ print(answer)
 
 #### Sample code 2 (OpenAI):
 ```
-!pip install langchain
+!pip install langchain langchain-community langchain-core
 !pip install openai
 
 import os
