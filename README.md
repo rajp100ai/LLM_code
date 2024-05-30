@@ -23,7 +23,17 @@ answer = get_answer(query)
 
 print(answer)
 ```
-
+```
+from huggingface_hub import list_models
+def list_most_popular(task: str):
+    for rank, model in enumerate(
+        list_models(filter=task, sort="downloads", direction=-1)
+):
+        if rank == 5:
+            break
+        print(f"{model.id}, {model.downloads}\n")
+list_most_popular("text-classification")
+```
 #### Sample code 2 (OpenAI):
 ```
 !pip install langchain langchain-community langchain-core
@@ -38,4 +48,18 @@ llm = OpenAI(model_name = "text-davinci-003")
 query = "What is the capital of UK?"
 answer = llm(query)
 print(answer)
+```
+
+#### Sample code 3 (VertexAI):
+```
+from langchain.llms import VertexAI
+from langchain import PromptTemplate, LLMChain
+template = """Question: {question}
+Answer: Let's think step by step."""
+prompt = PromptTemplate(template=template, input_variables=["question"])
+llm = VertexAI()
+llm_chain = LLMChain(prompt=prompt, llm=llm, verbose=True)
+question = "Who won noble price in 1980?"
+llm_chain.run(question)
+
 ```
